@@ -8,9 +8,9 @@ const authRoutes = require('./routes/auth.routes');
 
 const app = express();
 
-app.set('trust proxy', false);
+app.set('trust proxy', true);
 
-const allowedOrigins = ['https://payment-link-front-v2.vercel.app'];
+const allowedOrigins = [process.env.FRONTEND_URL];
 app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
